@@ -40,4 +40,6 @@ typedef NS_OPTIONS (NSInteger, UIViewHairLineBorder) {
 
 
 
+- (UIView*)dropShadowViewWithColor:(UIColor*)color andRadius:(CGFloat)shadowRadius andOffset:(CGSize)shadowOffset andOpacity:(CGFloat)shadowOpacity;
+
 @end

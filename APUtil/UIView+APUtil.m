@@ -54,4 +54,21 @@
     }
 }
 
+
+- (UIView*)dropShadowViewWithColor:(UIColor*)color andRadius:(CGFloat)shadowRadius andOffset:(CGSize)shadowOffset andOpacity:(CGFloat)shadowOpacity {
+    
+    CGRect shadowFrame = CGRectInset(self.frame, -2, -2);
+    UIView * shadow = [[UIView alloc] initWithFrame:shadowFrame];
+    shadow.userInteractionEnabled = NO; // Modify this if needed
+    shadow.layer.shadowColor = color.CGColor;
+    shadow.layer.shadowOffset = shadowOffset;
+    shadow.layer.shadowRadius = shadowRadius;
+    shadow.layer.masksToBounds = NO;
+    shadow.clipsToBounds = NO;
+    shadow.layer.shadowOpacity = shadowOpacity;
+    [self.superview insertSubview:shadow belowSubview:self];
+    [shadow addSubview:self];
+    return shadow;
+}
+
 @end
