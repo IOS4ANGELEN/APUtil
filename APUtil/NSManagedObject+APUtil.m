@@ -34,6 +34,22 @@
     return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([self class]) inManagedObjectContext:context];
 }
 
+- (instancetype) clonedAttributesInMOC:(NSManagedObjectContext*) moc {
+    
+    //create new object in data store
+    NSManagedObject *cloned = [NSEntityDescription
+                               insertNewObjectForEntityForName:self.entity.name
+                               inManagedObjectContext:moc];
+    //loop through all attributes and assign then to the clone
+    NSDictionary *attributes = self.entity.attributesByName;
+    
+    for (NSString *attr in [attributes allKeys]) {
+        [cloned setValue:[self valueForKey:attr] forKey:attr];
+    }
+    
+    return cloned;
+}
+
 
 
 @end
