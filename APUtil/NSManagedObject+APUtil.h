@@ -17,4 +17,6 @@
 + (NSArray*) allObjectsInContext:(NSManagedObjectContext*) context;
 + (instancetype) newObjectInContext:(NSManagedObjectContext*) context;
 
+- (instancetype) clonedAttributesInMOC:(NSManagedObjectContext*) moc;
+
 @end
