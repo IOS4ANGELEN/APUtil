@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "APUtil"
-  s.version          = "0.2"
+  s.version          = "0.3"
   s.summary          = "Categories utilities for Cocoa Classes"
   s.homepage         = "https://github.com/flavionegrao/APUtil"
   s.license          = 'MIT'
