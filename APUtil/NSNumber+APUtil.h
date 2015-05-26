@@ -24,6 +24,7 @@
 
 #pragma mark - Currency
 + (NSString*) currencySymbol;
+- (NSString*) lastFourDigits;
 
 
 @end

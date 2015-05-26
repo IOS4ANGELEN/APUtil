@@ -93,5 +93,11 @@
     return [[NSNumber sharedFormatter] currencySymbol];
 }
 
+- (NSString*) lastFourDigits {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumIntegerDigits:4];
+    return [formatter stringFromNumber:self];
+}
+
 
 @end
