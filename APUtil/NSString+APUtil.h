@@ -19,4 +19,6 @@
 
 - (NSString*) noWhiteSpacesAndNewLine;
 
+- (NSString*) ap_firstWord;
+
 @end

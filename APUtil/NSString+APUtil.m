@@ -44,4 +44,8 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (NSString*) ap_firstWord {
+    return [[self componentsSeparatedByString:@" "]firstObject];
+}
+
 @end
