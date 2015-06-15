@@ -34,6 +34,7 @@
     return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([self class]) inManagedObjectContext:context];
 }
 
+
 - (instancetype) clonedAttributesInMOC:(NSManagedObjectContext*) moc {
     
     //create new object in data store
