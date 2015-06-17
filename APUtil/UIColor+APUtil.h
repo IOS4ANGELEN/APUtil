@@ -11,5 +11,6 @@
 @interface UIColor (APUtil)
 
 - (UIColor *)ap_colorByDarkeningColorWithValue:(CGFloat)value;
+- (UIColor*)blendWithColor:(UIColor*)color2 alpha:(CGFloat)alpha2;
 
 @end
