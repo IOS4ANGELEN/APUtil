@@ -13,10 +13,11 @@
 - (void) setTitle: (NSString*) title
          subTitle: (NSString*) subTitle {
     
-    UIView* titleView = [[UIView alloc]initWithFrame:self.navigationController.navigationBar.frame];
-    UILabel* titleLabel = [[UILabel alloc]init];
-    UILabel* subTitleLabel = [[UILabel alloc]init];
+    UIView* titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 33)];
+    UILabel* titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    UILabel* subTitleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     
+//    [titleView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [subTitleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -36,12 +37,11 @@
     [titleView addSubview:subTitleLabel];
     
     NSDictionary* labelsDict = @{@"titleLabel":titleLabel,@"subtitleLabel":subTitleLabel};
-    [titleView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[titleLabel]-|" options:0 metrics:nil views:labelsDict]];
-    [titleView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[subtitleLabel]-|" options:0 metrics:nil views:labelsDict]];
+    [titleView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[titleLabel][subtitleLabel]|" options:0 metrics:nil views:labelsDict]];
     
-    [titleView addConstraint:[NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:titleView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    [titleView addConstraint:[NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:titleView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     
-    [titleView addConstraint:[NSLayoutConstraint constraintWithItem:subTitleLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:titleView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    [titleView addConstraint:[NSLayoutConstraint constraintWithItem:subTitleLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:titleView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     
     self.navigationItem.titleView = titleView;
 }
