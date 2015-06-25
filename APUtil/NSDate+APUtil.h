@@ -107,6 +107,10 @@ typedef NS_ENUM (NSUInteger,APIntervalo) {
 
 - (NSString*) timeStringFormat;
 
++ (NSDate*) dateFromString:(NSString *)dateString withFormat:(NSString*) format;
+
+- (NSString*) stringUsingFormat:(NSString*) format;
+
 
 #pragma mark - Deprecated
 

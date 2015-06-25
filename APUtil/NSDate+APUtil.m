@@ -503,4 +503,16 @@
     return [cal dateFromComponents:components];
 }
 
++ (NSDate*) dateFromString:(NSString *)dateString withFormat:(NSString*) format {
+    NSDateFormatter* formatter = [NSDate currentLocalFormatter];
+    formatter.dateFormat = format;
+    return [formatter dateFromString:dateString];
+}
+
+- (NSString*) stringUsingFormat:(NSString*) format {
+    NSDateFormatter* formatter = [NSDate currentLocalFormatter];
+    formatter.dateFormat = format;
+    return [formatter stringFromDate:self];
+}
+
 @end
