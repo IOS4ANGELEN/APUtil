@@ -13,7 +13,9 @@
 
 + (instancetype) alertControllerForLocalizedErrorMessage:(NSError*) error {
     
-    UIAlertController* alerController = [UIAlertController alertControllerWithTitle:@"Erro" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    NSString* message = [NSString stringWithFormat:@"%@\n\nCódigo do Erro: %ld",error.localizedDescription,error.code];
+    
+    UIAlertController* alerController = [UIAlertController alertControllerWithTitle:@"Erro" message:message preferredStyle:UIAlertControllerStyleAlert];
     
     [alerController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:NULL]];
     
