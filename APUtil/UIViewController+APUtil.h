@@ -12,6 +12,9 @@
 
 - (void) setTitle: (NSString*) title subTitle: (NSString*) subTitle;
 
+/// Adds a activity indicator + title to the navigationitem.title.
+- (void) setActitityIndicatorTitle:(NSString*) title;
+
 - (void) presentViewController:(UIViewController *)viewControllerToPresent
                       animated:(BOOL)animated
      embedNavigationController: (BOOL) embedNav

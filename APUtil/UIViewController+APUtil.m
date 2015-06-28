@@ -46,6 +46,37 @@
     self.navigationItem.titleView = titleView;
 }
 
+- (void) setActitityIndicatorTitle:(nullable NSString*) title {
+    if (!title) {
+        self.navigationItem.titleView = nil;
+        return;
+    }
+    
+    //Adds a custom Loading View
+    UIView* titleView = [[UIView alloc]initWithFrame:CGRectZero];
+    
+    UILabel* label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.text = title;
+    [label sizeToFit];
+    UIActivityIndicatorView* activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [activityIndicator startAnimating];
+    
+    activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+    label.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [titleView addSubview:label];
+    [titleView addSubview:activityIndicator];
+    
+    NSDictionary* views = @{@"label":label,@"activityIndicator":activityIndicator};
+    [titleView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[activityIndicator]-(4)-[label]|"options:0 metrics:nil views:views]];
+    [titleView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label]|"options:0 metrics:nil views:views]];
+    [titleView addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:activityIndicator attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    
+    titleView.frame = CGRectMake(0, 0, activityIndicator.frame.size.width + 4 + label.frame.size.width, label.frame.size.height);
+    
+    self.navigationItem.titleView = titleView;
+}
+
 
 - (void) presentViewController:(UIViewController *)viewControllerToPresent
                       animated:(BOOL)animated
