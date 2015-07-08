@@ -21,4 +21,6 @@
 
 - (NSString*) ap_firstWord;
 
+- (NSString*) stringByAppendingCarrierReturnBefore;
+
 @end

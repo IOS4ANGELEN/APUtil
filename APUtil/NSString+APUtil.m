@@ -48,4 +48,8 @@
     return [[self componentsSeparatedByString:@" "]firstObject];
 }
 
+- (NSString*) stringByAppendingCarrierReturnBefore {
+    return [NSString stringWithFormat:@"\n%@",self];
+}
+
 @end
