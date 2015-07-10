@@ -10,7 +10,6 @@
 
 @interface NSData (APUtil)
 
-// Already existis in Foyndation
-//+ (NSData *)base64DataFromString: (NSString *)string;
+- (NSData*) mmaped;
 
 @end
